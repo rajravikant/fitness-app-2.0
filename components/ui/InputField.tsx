@@ -1,7 +1,7 @@
-import { StyleSheet, Text, TextInput, TextInputProps, View } from 'react-native'
-import React, { memo, Ref, useState } from 'react'
+import { StyleSheet, TextInput, TextInputProps, View } from 'react-native'
+import React, { memo, Ref} from 'react'
 import { theme } from '@/constants/theme'
-import AntDesign from '@expo/vector-icons/AntDesign'
+import Icon from '@/components/ui/Icon'
 
 
 interface InputFieldProps {
@@ -10,14 +10,16 @@ interface InputFieldProps {
     onChangeText : (text : string) => void
     secureTextEntry? : boolean
     containerStyles? : any
+    icon? : {name : string, color : string , size : number , family : "Ionicons" | "FontAwesome5" | "AntDesign"}
+    iconStyles? : object
     ref? : Ref<TextInput>
 }
 
-const InputField = ({placeholder,value,onChangeText,ref,containerStyles,secureTextEntry}:InputFieldProps & TextInputProps) => {
+const InputField = ({placeholder,value,onChangeText,ref,containerStyles,secureTextEntry,icon,iconStyles}:InputFieldProps & TextInputProps) => {
   
   return (
     <View style={[styles.container,containerStyles ? containerStyles : null]}>
-        <AntDesign style={styles.icon} name="search1" size={20} color="grey" />
+       {icon && <Icon {...icon} style={[styles.icon,iconStyles]} />}
         <TextInput
             placeholder={placeholder}
             value={value} 
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
         borderWidth : 1,
         borderRadius : 10,
         width: "100%",
-        flex : 1,
+        justifyContent : "center",
    
     },
     text :{

@@ -41,7 +41,7 @@ export default function Index() {
           <Button
             title="Get Started"
             onPress={() => {
-              router.push("/(authenticated)/(tabs)/home");
+              router.push("/login");
             }}
           />
         </View>

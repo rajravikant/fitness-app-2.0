@@ -7,7 +7,7 @@ import BackButton from "@/components/ui/BackButton";
 import { Link, router } from "expo-router";
 import Button from "@/components/ui/Button";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { auth } from "@/utils/firebaseConfig";
+// import { auth } from "@/utils/firebaseConfig";
 import { hp } from "@/utils/common";
 const login = () => {
   const [email, setEmail] = useState("");
@@ -27,6 +27,18 @@ const login = () => {
         setError('All fields are required');
       return;
     }
+    setLoading(true);
+    
+
+    const timer = setTimeout(() => {
+      router.replace("/complete")
+
+      return () => {
+        setLoading(false)
+        clearTimeout(timer)
+      };
+    }, 3000);
+
     // setLoading(true);
     // try {
     //   const user = await signInWithEmailAndPassword(auth, email, password);
@@ -74,12 +86,24 @@ const login = () => {
             placeholder="email"
             value={email}
             onChangeText={(txt) => setEmail(txt.trim())}
+            icon={{
+              color : "grey",
+              name: "mail",
+              family : "AntDesign",
+              size: 20,
+            }}
           />
           <InputField
             placeholder="password"
             value={password}
             onChangeText={(txt) => setPassword(txt.trim())}
             secureTextEntry
+            icon={{
+              color : "grey",
+              name: "lock",
+              family : "AntDesign",
+              size: 22,
+            }}
           />
           {error && (
             <Text

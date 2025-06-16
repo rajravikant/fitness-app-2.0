@@ -29,6 +29,8 @@ const WorkoutLists = () => {
       </View>
 
       <Filters
+      onSelect={(selected) => {console.log(`Selected filter: ${selected}`);
+      }}
         options={[
           "Yoga",
           "Strength",

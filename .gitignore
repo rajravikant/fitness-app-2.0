@@ -37,4 +37,6 @@ yarn-error.*
 *.tsbuildinfo
 
 android
-assets
+ios
+bun.lock
+package-lock.json

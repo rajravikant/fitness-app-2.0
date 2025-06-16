@@ -122,6 +122,7 @@ const Page = () => {
 
           <View style={{ marginTop: 20 }}>
             <Text style={styles.title}>Execution</Text>
+            { exercise.instructions && (
             <View>
               {exercise.instructions.split(",").map((instr, key) => (
                 <Text key={key} style={styles.instruction}>
@@ -129,6 +130,7 @@ const Page = () => {
                 </Text>
               ))}
             </View>
+            )}
           </View>
         </View>
       </Animated.ScrollView>

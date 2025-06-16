@@ -15,7 +15,16 @@ export const ExerciseItem = ({
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: "row", alignItems: "center" }}>
-        <TouchableOpacity onPress={() => {router.push("/exercise")}}>
+        <TouchableOpacity onPress={() => {router.push({
+          pathname : "/exercise",
+          params: {
+            id,
+            name,
+            bodyPart,
+            equipment,
+            target,
+          },
+        })}}>
           <FontAwesome5 name="play-circle" size={30} color="#9381ff" />
         </TouchableOpacity>
         <Text style={styles.title}>{name.length > 30 ? name.substring(0,39)+"..." : name}</Text>

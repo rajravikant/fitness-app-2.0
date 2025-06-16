@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import React, { memo } from "react";
 import { theme } from "@/constants/theme";
 import { hp, wp } from "@/utils/common";
@@ -106,10 +106,10 @@ const Page = () => {
               alignItems: "center",
             }}
           >
-            <Text style={styles.cardtitle}>Nutrution and Diet</Text>
-            <TouchableOpacity onPress={() => {}}>
+            <Text style={styles.cardtitle}>Nutrition and Diet</Text>
+            <Pressable onPress={() => {}}>
               <Ionicons name="chevron-forward-circle" size={24} color="black" />
-            </TouchableOpacity>
+            </Pressable>
           </View>
         </Card>
       </View>
